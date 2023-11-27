@@ -8,14 +8,14 @@ import pytz
 pygame.init()
 
 # Load audio files
-sabah_sound = pygame.mixer.Sound("/home/hayalezan/ezan-saati/sabah.mp3")
-ogle_sound = pygame.mixer.Sound("/home/hayalezan/ezan-saati/ogle.mp3")
-ikindi_sound = pygame.mixer.Sound("/home/hayalezan/ezan-saati/ikindi.mp3")
-aksam_sound = pygame.mixer.Sound("/home/hayalezan/ezan-saati/aksam.mp3")
-yatsi_sound = pygame.mixer.Sound("/home/hayalezan/ezan-saati/yatsi.mp3")
+sabah_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/sabah.mp3")
+ogle_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/ogle.mp3")
+ikindi_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/ikindi.mp3")
+aksam_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/aksam.mp3")
+yatsi_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/yatsi.mp3")
 
 # Load namazvakti.json
-with open("/home/hayalezan/ezan-saati/namazvakti.json", "r") as f:
+with open("/home/hayalezan/ezansaati/namazvakti.json", "r") as f:
     data = json.load(f)
 
 # Initialize a dictionary to keep track of whether each prayer time has been played
