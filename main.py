@@ -8,14 +8,14 @@ import pytz
 import time
 
 # Load audio files from environment variables
-sabah_sound_path = os.getenv("SABAH_SOUND_PATH", "/Users/berkayemir/Desktop/ezan/sabah.mp3")
-ogle_sound_path = os.getenv("OGLE_SOUND_PATH", "/Users/berkayemir/Desktop/ezan/ogle.mp3")
-ikindi_sound_path = os.getenv("IKINDI_SOUND_PATH", "/Users/berkayemir/Desktop/ezan/ikindi.mp3")
-aksam_sound_path = os.getenv("AKSAM_SOUND_PATH", "/Users/berkayemir/Desktop/ezan/aksam.mp3")
-yatsi_sound_path = os.getenv("YATSI_SOUND_PATH", "/Users/berkayemir/Desktop/ezan/yatsi.mp3")
+sabah_sound_path = os.getenv("SABAH_SOUND_PATH", "/home/hayalezan/ezansaati/sabah.mp3")
+ogle_sound_path = os.getenv("OGLE_SOUND_PATH", "/home/hayalezan/ezansaati/ogle.mp3")
+ikindi_sound_path = os.getenv("IKINDI_SOUND_PATH", "/home/hayalezan/ezansaati/ikindi.mp3")
+aksam_sound_path = os.getenv("AKSAM_SOUND_PATH", "/home/hayalezan/ezansaati/aksam.mp3")
+yatsi_sound_path = os.getenv("YATSI_SOUND_PATH", "/home/hayalezan/ezansaati/yatsi.mp3")
 
 # Load namazvakti.json from environment variable
-json_file_path = os.getenv("JSON_FILE_PATH", "/Users/berkayemir/Desktop/ezan/namazvakti.json")
+json_file_path = os.getenv("JSON_FILE_PATH", "/home/hayalezan/ezansaati/namazvakti.json")
 
 # Load audio files
 sabah_sound = AudioSegment.from_mp3(sabah_sound_path)
