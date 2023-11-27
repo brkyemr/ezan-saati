@@ -8,11 +8,11 @@ import pytz
 pygame.init()
 
 # Load audio files
-sabah_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/sabah.mp3")
-ogle_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/ogle.mp3")
-ikindi_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/ikindi.mp3")
-aksam_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/aksam.mp3")
-yatsi_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/yatsi.mp3")
+sabah_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/sabah.wav")
+ogle_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/ogle.wav")
+ikindi_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/ikindi.wav")
+aksam_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/aksam.wav")
+yatsi_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/yatsi.wav")
 
 # Load namazvakti.json
 with open("/home/hayalezan/ezansaati/namazvakti.json", "r") as f:
