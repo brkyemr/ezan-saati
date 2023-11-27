@@ -1,25 +1,32 @@
-import pygame
+import sys
+from pydub import AudioSegment
+from pydub.playback import play
 import json
-import time
+import os
 from datetime import datetime, timedelta
 import pytz
+import time
 
-# Initialize Pygame
-pygame.init()
+# Load audio files from environment variables
+sabah_sound_path = os.getenv("SABAH_SOUND_PATH", "/Users/berkayemir/Desktop/ezan/sabah.mp3")
+ogle_sound_path = os.getenv("OGLE_SOUND_PATH", "/Users/berkayemir/Desktop/ezan/ogle.mp3")
+ikindi_sound_path = os.getenv("IKINDI_SOUND_PATH", "/Users/berkayemir/Desktop/ezan/ikindi.mp3")
+aksam_sound_path = os.getenv("AKSAM_SOUND_PATH", "/Users/berkayemir/Desktop/ezan/aksam.mp3")
+yatsi_sound_path = os.getenv("YATSI_SOUND_PATH", "/Users/berkayemir/Desktop/ezan/yatsi.mp3")
+
+# Load namazvakti.json from environment variable
+json_file_path = os.getenv("JSON_FILE_PATH", "/Users/berkayemir/Desktop/ezan/namazvakti.json")
 
 # Load audio files
-sabah_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/sabah.wav")
-ogle_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/ogle.wav")
-ikindi_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/ikindi.wav")
-aksam_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/aksam.wav")
-yatsi_sound = pygame.mixer.Sound("/home/hayalezan/ezansaati/yatsi.wav")
+sabah_sound = AudioSegment.from_mp3(sabah_sound_path)
+ogle_sound = AudioSegment.from_mp3(ogle_sound_path)
+ikindi_sound = AudioSegment.from_mp3(ikindi_sound_path)
+aksam_sound = AudioSegment.from_mp3(aksam_sound_path)
+yatsi_sound = AudioSegment.from_mp3(yatsi_sound_path)
 
 # Load namazvakti.json
-with open("/home/hayalezan/ezansaati/namazvakti.json", "r") as f:
+with open(json_file_path, "r") as f:
     data = json.load(f)
-
-# Initialize a dictionary to keep track of whether each prayer time has been played
-played_flag = {0: False, 2: False, 3: False, 4: False, 5: False}
 
 while True:
     now = datetime.now(pytz.timezone('Europe/Istanbul'))
@@ -35,25 +42,16 @@ while True:
         index = today_time.index(current_time)
         print(today_time)
 
-        # Check if the sound for the current prayer time has not been played
-        if not played_flag[index]:
-            # Play corresponding sound based on prayer time
-            if index == 0:
-                pygame.mixer.Sound.play(sabah_sound)
-            elif index == 2:
-                pygame.mixer.Sound.play(ogle_sound)
-            elif index == 3:
-                pygame.mixer.Sound.play(ikindi_sound)
-            elif index == 4:
-                pygame.mixer.Sound.play(aksam_sound)
-            elif index == 5:
-                pygame.mixer.Sound.play(yatsi_sound)
-
-            # Set the flag to indicate that the sound has been played
-            played_flag[index] = True
-
-    # Reset flags at midnight to allow sounds to be played again on the next day
-    if now.hour == 0 and now.minute == 0:
-        played_flag = {0: False, 2: False, 3: False, 4: False, 5: False}
+        # Play corresponding sound based on prayer time
+        if index == 0:
+            play(sabah_sound)
+        elif index == 2:
+            play(ogle_sound)
+        elif index == 3:
+            play(ikindi_sound)
+        elif index == 4:
+            play(aksam_sound)
+        elif index == 5:
+            play(yatsi_sound)
 
     time.sleep(10)
