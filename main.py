@@ -7,22 +7,33 @@ from datetime import datetime, timedelta
 import pytz
 import time
 
+# Define dynamic base path (you can set this dynamically based on your requirements)
+base_path = os.getenv("BASE_PATH", "/Users/berkayemir/Desktop/ezan/")
+
 # Load audio files from environment variables
-sabah_sound_path = os.getenv("SABAH_SOUND_PATH", "/home/hayalezan/ezansaati/sabah.mp3")
-ogle_sound_path = os.getenv("OGLE_SOUND_PATH", "/home/hayalezan/ezansaati/ogle.mp3")
-ikindi_sound_path = os.getenv("IKINDI_SOUND_PATH", "/home/hayalezan/ezansaati/ikindi.mp3")
-aksam_sound_path = os.getenv("AKSAM_SOUND_PATH", "/home/hayalezan/ezansaati/aksam.mp3")
-yatsi_sound_path = os.getenv("YATSI_SOUND_PATH", "/home/hayalezan/ezansaati/yatsi.mp3")
+sabah_sound_path = os.path.join(base_path, "sabah.mp3")
+ogle_sound_path = os.path.join(base_path, "ogle.mp3")
+ikindi_sound_path = os.path.join(base_path, "ikindi.mp3")
+aksam_sound_path = os.path.join(base_path, "aksam.mp3")
+yatsi_sound_path = os.path.join(base_path, "yatsi.mp3")
 
 # Load namazvakti.json from environment variable
-json_file_path = os.getenv("JSON_FILE_PATH", "/home/hayalezan/ezansaati/namazvakti.json")
-
+json_file_path = os.path.join(base_path, "namazvakti.json")
 # Load audio files
 sabah_sound = AudioSegment.from_mp3(sabah_sound_path)
+sabah_sound = sabah_sound + 10  # Increase volume by 10 decibels
+
 ogle_sound = AudioSegment.from_mp3(ogle_sound_path)
+ogle_sound = ogle_sound + 10
+
 ikindi_sound = AudioSegment.from_mp3(ikindi_sound_path)
+ikindi_sound = ikindi_sound + 10
+
 aksam_sound = AudioSegment.from_mp3(aksam_sound_path)
+aksam_sound = aksam_sound + 10
+
 yatsi_sound = AudioSegment.from_mp3(yatsi_sound_path)
+yatsi_sound = yatsi_sound + 10
 
 # Load namazvakti.json
 with open(json_file_path, "r") as f:
