@@ -8,7 +8,7 @@ import pytz
 import time
 
 # Define dynamic base path (you can set this dynamically based on your requirements)
-base_path = os.getenv("BASE_PATH", "/Users/berkayemir/Desktop/ezan/")
+base_path = os.getenv("BASE_PATH", "/home/hayalezan/ezansaati/")
 
 # Load audio files from environment variables
 sabah_sound_path = os.path.join(base_path, "sabah.mp3")
