@@ -8,7 +8,7 @@ import pytz
 import time
 
 # Define dynamic base path (you can set this dynamically based on your requirements)
-base_path = os.getenv("BASE_PATH", "/home/hayalezan/ezansaati/")
+base_path = os.getenv("BASE_PATH", "/Users/berkayemir/Desktop/ezan/")
 
 # Load audio files from environment variables
 sabah_sound_path = os.path.join(base_path, "sabah.mp3")
@@ -41,17 +41,15 @@ with open(json_file_path, "r") as f:
 
 while True:
     now = datetime.now(pytz.timezone('Europe/Istanbul'))
-    today_time = data["times"][f"{now.year}-{now.month}-{now.day}"]
-
+    formatted_key = now.strftime('%Y-%m-%d')
+    # today_time = data["times"][f"{now.year}-{now.month}-{now.day}"]
+    today_time = data["times"][formatted_key]
     # Format current time
     current_time = now.strftime("%H:%M")
-    print("current_time", current_time)
-    print("now", now)
-
+   
     # Check if the current time matches prayer times
     if current_time in today_time:
         index = today_time.index(current_time)
-        print(today_time)
 
         # Play corresponding sound based on prayer time
         if index == 0:
