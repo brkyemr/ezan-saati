@@ -46,7 +46,9 @@ while True:
     today_time = data["times"][formatted_key]
     # Format current time
     current_time = now.strftime("%H:%M")
-   
+    print("current_time", current_time)
+    print("now", now)
+
     # Check if the current time matches prayer times
     if current_time in today_time:
         index = today_time.index(current_time)
