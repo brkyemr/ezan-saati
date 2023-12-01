@@ -50,6 +50,7 @@ while True:
     # Check if the current time matches prayer times
     if current_time in today_time:
         index = today_time.index(current_time)
+        print(today_time)
 
         # Play corresponding sound based on prayer time
         if index == 0:
