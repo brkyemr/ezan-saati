@@ -21,19 +21,19 @@ yatsi_sound_path = os.path.join(base_path, "yatsi.mp3")
 json_file_path = os.path.join(base_path, "namazvakti.json")
 # Load audio files
 sabah_sound = AudioSegment.from_mp3(sabah_sound_path)
-sabah_sound = sabah_sound + 10  # Increase volume by 10 decibels
+sabah_sound = sabah_sound   # Increase volume by 10 decibels
 
 ogle_sound = AudioSegment.from_mp3(ogle_sound_path)
-ogle_sound = ogle_sound + 10
+ogle_sound = ogle_sound 
 
 ikindi_sound = AudioSegment.from_mp3(ikindi_sound_path)
-ikindi_sound = ikindi_sound + 10
+ikindi_sound = ikindi_sound 
 
 aksam_sound = AudioSegment.from_mp3(aksam_sound_path)
-aksam_sound = aksam_sound + 10
+aksam_sound = aksam_sound 
 
 yatsi_sound = AudioSegment.from_mp3(yatsi_sound_path)
-yatsi_sound = yatsi_sound + 10
+yatsi_sound = yatsi_sound 
 
 # Load namazvakti.json
 with open(json_file_path, "r") as f:
