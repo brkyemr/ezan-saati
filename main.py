@@ -18,11 +18,18 @@ aksam_sound_path = os.path.join(base_path, "aksam.mp3")
 yatsi_sound_path = os.path.join(base_path, "yatsi.mp3")
 
 # Load and boost volume of audio files (+10 dB)
-sabah_sound = AudioSegment.from_mp3(sabah_sound_path).apply_gain(+10)
-ogle_sound = AudioSegment.from_mp3(ogle_sound_path).apply_gain(+10)
-ikindi_sound = AudioSegment.from_mp3(ikindi_sound_path).apply_gain(+10)
-aksam_sound = AudioSegment.from_mp3(aksam_sound_path).apply_gain(+10)
-yatsi_sound = AudioSegment.from_mp3(yatsi_sound_path).apply_gain(+10)
+sabah_sound = AudioSegment.from_mp3(sabah_sound_path)
+ogle_sound = AudioSegment.from_mp3(ogle_sound_path)
+ikindi_sound = AudioSegment.from_mp3(ikindi_sound_path)
+aksam_sound = AudioSegment.from_mp3(aksam_sound_path)
+yatsi_sound = AudioSegment.from_mp3(yatsi_sound_path)
+
+sabah_sound = sabah_sound + 3
+ogle_sound = ogle_sound + 3
+ikindi_sound = ikindi_sound + 3
+aksam_sound = aksam_sound + 3
+yatsi_sound = yatsi_sound + 3
+
 
 # Load namazvakti.json
 json_file_path = os.path.join(base_path, "namazvakti.json")
