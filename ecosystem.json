@@ -1,0 +1,15 @@
+{
+  "apps": [
+    {
+      "name": "ezan_app",
+      "script": "main.py",
+      "cwd": "/home/hayalhanem/Masaüstü/ezan-saati",   // proje dizininiz
+      "interpreter": "./.venv/bin/python",        // sanal ortam Python’u
+      "autorestart": true,
+      "watch": false,
+      "env": {
+        "PYTHONUNBUFFERED": "1"                   // anlık log akışı
+      }
+    }
+  ]
+}
